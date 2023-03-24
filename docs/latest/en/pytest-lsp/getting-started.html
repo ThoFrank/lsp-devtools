@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="API Reference" href="reference.html" /><link rel="prev" title="LSP Devtools" href="../index.html" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
         <title>Getting Started - LSP Devtools</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -186,7 +186,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -194,7 +194,149 @@
         <article role="main">
           <section id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
-<p>Coming soon</p>
+<p>This guide will walk you through the process of writing your first test case using <code class="docutils literal notranslate"><span class="pre">pytest-lsp</span></code>.</p>
+<section id="a-simple-language-server">
+<h2>A Simple Language Server<a class="headerlink" href="#a-simple-language-server" title="Permalink to this heading">#</a></h2>
+<p>Before we can write any tests, we need a language server to test!
+For the purposes of this example we’ll write a simple language server in Python using the <a class="reference external" href="https://github.com/openlawlibrary/pygls">pygls</a> library but note that <code class="docutils literal notranslate"><span class="pre">pytest-lsp</span></code> should work with language servers written in any language or framework.</p>
+<p>The following server implements the <code class="docutils literal notranslate"><span class="pre">textDocument/completion</span></code> method</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lsprotocol.types</span> <span class="kn">import</span> <span class="n">TEXT_DOCUMENT_COMPLETION</span>
+<span class="kn">from</span> <span class="nn">lsprotocol.types</span> <span class="kn">import</span> <span class="n">CompletionItem</span>
+<span class="kn">from</span> <span class="nn">lsprotocol.types</span> <span class="kn">import</span> <span class="n">CompletionParams</span>
+<span class="kn">from</span> <span class="nn">pygls.server</span> <span class="kn">import</span> <span class="n">LanguageServer</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">LanguageServer</span><span class="p">(</span><span class="s2">&quot;hello-world&quot;</span><span class="p">,</span> <span class="s2">&quot;v1&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@server</span><span class="o">.</span><span class="n">feature</span><span class="p">(</span><span class="n">TEXT_DOCUMENT_COMPLETION</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">completion</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LanguageServer</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">CompletionParams</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">CompletionItem</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span><span class="p">),</span>
+        <span class="n">CompletionItem</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;world&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>Copy and paste the above code into a file named <code class="docutils literal notranslate"><span class="pre">server.py</span></code>.</p>
+</section>
+<section id="a-simple-test-case">
+<h2>A Simple Test Case<a class="headerlink" href="#a-simple-test-case" title="Permalink to this heading">#</a></h2>
+<p>Now we can go ahead and test it.
+Copy the following code and save it into a file named <code class="docutils literal notranslate"><span class="pre">test_server.py</span></code>, in the same directory as the <code class="docutils literal notranslate"><span class="pre">server.py</span></code> file you created in the previous step.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">lsprotocol.types</span> <span class="kn">import</span> <span class="n">ClientCapabilities</span>
+<span class="kn">from</span> <span class="nn">lsprotocol.types</span> <span class="kn">import</span> <span class="n">InitializeParams</span>
+
+<span class="kn">import</span> <span class="nn">pytest_lsp</span>
+<span class="kn">from</span> <span class="nn">pytest_lsp.client</span> <span class="kn">import</span> <span class="n">LanguageClient</span>
+<span class="kn">from</span> <span class="nn">pytest_lsp.plugin</span> <span class="kn">import</span> <span class="n">ClientServerConfig</span>
+
+
+<span class="nd">@pytest_lsp</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">ClientServerConfig</span><span class="p">(</span><span class="n">server_command</span><span class="o">=</span><span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;server.py&quot;</span><span class="p">]),</span>
+<span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="n">lsp_client</span><span class="p">:</span> <span class="n">LanguageClient</span><span class="p">):</span>
+    <span class="c1"># Setup</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">InitializeParams</span><span class="p">(</span><span class="n">capabilities</span><span class="o">=</span><span class="n">ClientCapabilities</span><span class="p">())</span>
+    <span class="k">await</span> <span class="n">lsp_client</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="k">yield</span>
+
+    <span class="c1"># Teardown</span>
+    <span class="k">await</span> <span class="n">lsp_client</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This creates a <a class="reference external" href="https://docs.pytest.org/en/7.1.x/how-to/fixtures.html">pytest fixture</a> named <code class="docutils literal notranslate"><span class="pre">client</span></code>, it uses the given <code class="docutils literal notranslate"><span class="pre">server_command</span></code> to automatically launch the server in a background process and connect it to a <code class="docutils literal notranslate"><span class="pre">LanguageClient</span></code> instance.</p>
+<p>The setup code (everything before the <code class="docutils literal notranslate"><span class="pre">yield</span></code>) statement is executed before any tests run, calling <code class="docutils literal notranslate"><span class="pre">initialize</span></code> on the client to open the LSP session.</p>
+<p>Once all test cases have been called, the code after the <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement will be called to shutdown the server and close the session</p>
+<p>With the framework in place, we can go ahead and define our first test case</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">test_completions</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">LanguageClient</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure that the server implements completions correctly.&quot;&quot;&quot;</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">completion_request</span><span class="p">(</span>
+        <span class="n">uri</span><span class="o">=</span><span class="s2">&quot;file:///path/to/file.txt&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="mi">0</span>
+    <span class="p">)</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">label</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">labels</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>All that’s left is to run the test suite!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pytest
+================================================ test session starts =================================================
+platform linux -- Python 3.11.2, pytest-7.2.0, pluggy-1.0.0
+rootdir: /var/home/user/Projects/lsp-devtools/lib/pytest-lsp, configfile: pyproject.toml
+plugins: typeguard-2.13.3, asyncio-0.20.2, lsp-0.2.1
+asyncio: mode=Mode.AUTO
+collected 1 item
+
+test_server.py E                                                                                               [100%]
+
+======================================================= ERRORS =======================================================
+_________________________________________ ERROR at setup of test_completions _________________________________________
+
+lsp_client = &lt;pytest_lsp.client.LanguageClient object at 0x7f9bd7e22050&gt;
+
+    @pytest_lsp.fixture(
+        config=ClientServerConfig(server_command=[sys.executable, &quot;server.py&quot;]),
+    )
+    async def client(lsp_client: LanguageClient):
+        # Setup
+        params = InitializeParams(capabilities=ClientCapabilities())
+&gt;       await lsp_client.initialize(params)
+
+test_server.py:18:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../pytest_lsp/client.py:342: in initialize
+    response = await self.initialize_request(params)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;pytest_lsp.client.LanguageClient object at 0x7f9bd7e22050&gt;
+params = InitializeParams(capabilities=ClientCapabilities(workspace=None, text_document=None, notebook_document=None, window=No..., root_path=None, root_uri=None, initialization_options=None, trace=None, work_done_token=None, workspace_folders=None)
+
+    async def initialize_request(self, params: InitializeParams) -&gt; lsprotocol.types.InitializeResult:
+        &quot;&quot;&quot;Make a ``initialize`` request.
+
+        The initialize request is sent from the client to the server.
+
+        It is sent once as the request after starting up the server. The
+        requests parameter is of type {@link InitializeParams} the response
+        if of type {@link InitializeResult} of a Thenable that resolves to
+        such.
+        &quot;&quot;&quot;
+&gt;       return await self.lsp.send_request_async(&quot;initialize&quot;, params)
+E       asyncio.exceptions.CancelledError: RuntimeError: Server exited with return code: 0
+E
+E       NoneType: None
+
+../../pytest_lsp/gen.py:146: CancelledError
+============================================== short test summary info ===============================================
+ERROR test_server.py::test_completions - asyncio.exceptions.CancelledError: RuntimeError: Server exited with return...
+================================================== 1 error in 1.14s ==================================================
+</pre></div>
+</div>
+<p>Ah, looks like we forgot to start the server.
+Add the following to the bottom of <code class="docutils literal notranslate"><span class="pre">server.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">start_io</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Let’s try again</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pytest
+================================================ test session starts =================================================
+platform linux -- Python 3.11.2, pytest-7.2.0, pluggy-1.0.0
+rootdir: /var/home/user/Projects/lsp-devtools/lib/pytest-lsp, configfile: pyproject.toml
+plugins: typeguard-2.13.3, asyncio-0.20.2, lsp-0.2.1
+asyncio: mode=Mode.AUTO
+collected 1 item
+
+test_server.py .                                                                                               [100%]
+
+================================================= 1 passed in 0.96s ==================================================
+</pre></div>
+</div>
+<p>Much bettter!</p>
+</section>
 </section>
 
         </article>
@@ -240,8 +382,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#a-simple-language-server">A Simple Language Server</a></li>
+<li><a class="reference internal" href="#a-simple-test-case">A Simple Test Case</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

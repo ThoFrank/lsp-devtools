@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Getting Started" href="getting-started.html" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
         <title>API Reference - LSP Devtools</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -199,7 +199,7 @@
 <span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">fixture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixture_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.fixture" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><em>Iterable</em></a><em>[</em><a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,37 +220,26 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pytest_lsp.make_test_client">
-<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">make_test_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capabilities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_uri</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.make_test_client" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">make_test_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.make_test_client" title="Permalink to this definition">#</a></dt>
 <dd><p>Construct a new test client instance with the handlers needed to capture
 additional responses from the server.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>capabilities</strong> (<em>ClientCapabilities</em>) – </p></li>
-<li><p><strong>root_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a></p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pytest_lsp.ClientServerConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_capabilities=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_factory=&lt;function</span> <span class="pre">make_test_client&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialization_options=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServerConfig" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_factory=&lt;function</span> <span class="pre">make_test_client&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServerConfig" title="Permalink to this definition">#</a></dt>
 <dd><p>Configuration for a LSP Client-Server pair.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>server_command</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – The command to use to start the language server.</p></li>
-<li><p><strong>root_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The root uri to start the language server in</p></li>
-<li><p><strong>client</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The name of the client profile to use</p></li>
-<li><p><strong>client_capabilities</strong> (<em>ClientCapabilities</em><em> | </em><em>None</em>) – Use to use a specific set of client, capabilities.
-Specifiying this will override <code class="docutils literal notranslate"><span class="pre">client</span></code>.</p></li>
-<li><p><strong>client_factory</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><em>...</em><em>]</em><em>, </em><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a><em>]</em>) – Factory function to use when constructing the language client instance.
+<li><p><strong>client_factory</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><em>]</em><em>, </em><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a><em>]</em>) – Factory function to use when constructing the language client instance.
 Defaults to <a class="reference internal" href="#pytest_lsp.make_test_client" title="pytest_lsp.make_test_client"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest_lsp.make_test_client()</span></code></a></p></li>
-<li><p><strong>initialization_options</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em> | </em><em>None</em>) – The initialization options to pass to the server on start up.</p></li>
 </ul>
 </dd>
 </dl>
@@ -258,16 +247,8 @@ Defaults to <a class="reference internal" href="#pytest_lsp.make_test_client" ti
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pytest_lsp.LanguageClient">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">LanguageClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capabilities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_uri</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">LanguageClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient" title="Permalink to this definition">#</a></dt>
 <dd><p>Used to drive language servers under test.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>capabilities</strong> (<em>ClientCapabilities</em>) – The client’s capabilities</p></li>
-<li><p><strong>root_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – THe root uri of the client’s workspace.</p></li>
-</ul>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pytest_lsp.LanguageClient.call_hierarchy_incoming_calls_request">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">call_hierarchy_incoming_calls_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient.call_hierarchy_incoming_calls_request" title="Permalink to this definition">#</a></dt>
@@ -495,6 +476,31 @@ object.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_lsp.LanguageClient.initialize">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient.initialize" title="Permalink to this definition">#</a></dt>
+<dd><p>Make an <code class="docutils literal notranslate"><span class="pre">initialize</span></code> request to a lanaguage server.</p>
+<p>Helper method for <a class="reference internal" href="#pytest_lsp.LanguageClient.initialize_request" title="pytest_lsp.LanguageClient.initialize_request"><code class="xref py py-meth docutils literal notranslate"><span class="pre">LanguageClient.initialize_request()</span></code></a> that will
+automatically fill in some of the required fields of <code class="docutils literal notranslate"><span class="pre">params</span></code> if they
+are not given.</p>
+<p>It will also automatically send an <code class="docutils literal notranslate"><span class="pre">initialized</span></code> notification once
+the server responds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<em>InitializeParams</em>) – <p>The parameters to send to the client.</p>
+<p>The following fields will be automatically set if left blank.
+- <code class="docutils literal notranslate"><span class="pre">process_id</span></code>: Set to the PID of the current process.</p>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result received from the client.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>InitializeResult</p>
 </dd>
 </dl>
 </dd></dl>
@@ -973,8 +979,20 @@ when files were renamed from within the client.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pytest_lsp.LanguageClient.shutdown">
-<span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient.shutdown" title="Permalink to this definition">#</a></dt>
-<dd><p>Shutdown server.</p>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient.shutdown" title="Permalink to this definition">#</a></dt>
+<dd><p>Shutdown the server under test.</p>
+<p>Helper method that handles sending <code class="docutils literal notranslate"><span class="pre">shutdown</span></code> and <code class="docutils literal notranslate"><span class="pre">exit</span></code> messages in the
+correct order.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method will not attempt to send these messages if a fatal error has
+occurred.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1824,16 +1842,13 @@ within the client.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pytest_lsp.ClientServer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_capabilities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialization_options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServer" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServer" title="Permalink to this definition">#</a></dt>
 <dd><p>A client server pair used to drive test cases.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>client</strong> (<a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a>) – </p></li>
 <li><p><strong>server</strong> (<a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.11)"><em>Popen</em></a>) – </p></li>
-<li><p><strong>root_uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – </p></li>
-<li><p><strong>client_capabilities</strong> (<em>ClientCapabilities</em>) – </p></li>
-<li><p><strong>initialization_options</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -1841,24 +1856,6 @@ within the client.</p>
 <dt class="sig sig-object py" id="pytest_lsp.ClientServer.client">
 <span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#pytest_lsp.ClientServer.client" title="Permalink to this definition">#</a></dt>
 <dd><p>The client used to drive the test.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pytest_lsp.ClientServer.client_capabilities">
-<span class="sig-name descname"><span class="pre">client_capabilities</span></span><a class="headerlink" href="#pytest_lsp.ClientServer.client_capabilities" title="Permalink to this definition">#</a></dt>
-<dd><p>The capabilities of the client.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pytest_lsp.ClientServer.initialization_options">
-<span class="sig-name descname"><span class="pre">initialization_options</span></span><a class="headerlink" href="#pytest_lsp.ClientServer.initialization_options" title="Permalink to this definition">#</a></dt>
-<dd><p>The initialization options to pass to the server.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pytest_lsp.ClientServer.root_uri">
-<span class="sig-name descname"><span class="pre">root_uri</span></span><a class="headerlink" href="#pytest_lsp.ClientServer.root_uri" title="Permalink to this definition">#</a></dt>
-<dd><p>The root uri to point the server at.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1937,6 +1934,7 @@ within the client.</p>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.execute_command_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.execute_command_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.hover_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.hover_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.implementation_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.implementation_request()</span></code></a></li>
+<li><a class="reference internal" href="#pytest_lsp.LanguageClient.initialize"><code class="docutils literal notranslate"><span class="pre">LanguageClient.initialize()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.initialize_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.initialize_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.inlay_hint_resolve_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.inlay_hint_resolve_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.notify_cancel_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.notify_cancel_request()</span></code></a></li>
@@ -2024,9 +2022,6 @@ within the client.</p>
 </li>
 <li><a class="reference internal" href="#pytest_lsp.ClientServer"><code class="docutils literal notranslate"><span class="pre">ClientServer</span></code></a><ul>
 <li><a class="reference internal" href="#pytest_lsp.ClientServer.client"><code class="docutils literal notranslate"><span class="pre">ClientServer.client</span></code></a></li>
-<li><a class="reference internal" href="#pytest_lsp.ClientServer.client_capabilities"><code class="docutils literal notranslate"><span class="pre">ClientServer.client_capabilities</span></code></a></li>
-<li><a class="reference internal" href="#pytest_lsp.ClientServer.initialization_options"><code class="docutils literal notranslate"><span class="pre">ClientServer.initialization_options</span></code></a></li>
-<li><a class="reference internal" href="#pytest_lsp.ClientServer.root_uri"><code class="docutils literal notranslate"><span class="pre">ClientServer.root_uri</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.ClientServer.server"><code class="docutils literal notranslate"><span class="pre">ClientServer.server</span></code></a></li>
 </ul>
 </li>
