@@ -5,10 +5,11 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Changelog" href="changelog.html" /><link rel="prev" title="Fixtures" href="guide/fixtures.html" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
+    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.23 -->
         <title>API Reference - LSP Devtools</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -158,6 +159,7 @@
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="guide.html">User Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide/getting-started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/language-client.html">Language Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide/fixtures.html">Fixtures</a></li>
 </ul>
 </li>
@@ -199,57 +201,8 @@
         <article role="main">
           <section id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="pytest_lsp.fixture">
-<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">fixture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixture_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.fixture" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pytest_lsp.make_client_server">
-<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">make_client_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.make_client_server" title="Permalink to this definition">#</a></dt>
-<dd><p>Construct a new <code class="docutils literal notranslate"><span class="pre">ClientServer</span></code> instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#pytest_lsp.ClientServer" title="pytest_lsp.plugin.ClientServer"><em>ClientServer</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pytest_lsp.make_test_client">
-<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">make_test_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.make_test_client" title="Permalink to this definition">#</a></dt>
-<dd><p>Construct a new test client instance with the handlers needed to capture
-additional responses from the server.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="pytest_lsp.ClientServerConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_factory=&lt;function</span> <span class="pre">make_test_client&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServerConfig" title="Permalink to this definition">#</a></dt>
-<dd><p>Configuration for a LSP Client-Server pair.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>server_command</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – The command to use to start the language server.</p></li>
-<li><p><strong>client_factory</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><em>]</em><em>, </em><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a><em>]</em>) – Factory function to use when constructing the language client instance.
-Defaults to <a class="reference internal" href="#pytest_lsp.make_test_client" title="pytest_lsp.make_test_client"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest_lsp.make_test_client()</span></code></a></p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="languageclient">
+<h2>LanguageClient<a class="headerlink" href="#languageclient" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="pytest_lsp.LanguageClient">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">LanguageClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient" title="Permalink to this definition">#</a></dt>
@@ -265,7 +218,7 @@ Defaults to <a class="reference internal" href="#pytest_lsp.make_test_client" ti
 <dd class="field-odd"><p><strong>params</strong> (<em>CallHierarchyIncomingCallsParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CallHierarchyIncomingCall</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CallHierarchyIncomingCall</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -281,7 +234,7 @@ Defaults to <a class="reference internal" href="#pytest_lsp.make_test_client" ti
 <dd class="field-odd"><p><strong>params</strong> (<em>CallHierarchyOutgoingCallsParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CallHierarchyOutgoingCall</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CallHierarchyOutgoingCall</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -350,7 +303,7 @@ reduces the amount of boilerplate required to construct the parameters object.</
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CompletionItem</em>] | <em>CompletionList</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CompletionItem</em>], <em>CompletionList</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -371,7 +324,7 @@ object.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Location</em>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -388,7 +341,7 @@ object.</p>
 <dd class="field-odd"><p><strong>uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The uri of the document to make the request for.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentLink</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -422,7 +375,7 @@ object.</p>
 <dd class="field-odd"><p><strong>uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The uri of the document to make the request for.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SymbolInformation</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentSymbol</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SymbolInformation</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentSymbol</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -438,8 +391,8 @@ object.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The command name to execute</p></li>
-<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em> | </em><em>None</em>) – Any arguments to pass to the server</p></li>
-<li><p><strong>work_done_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><em>None</em>) – An optional progress token</p></li>
+<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>]</em>) – Any arguments to pass to the server</p></li>
+<li><p><strong>work_done_token</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em><em>]</em>) – An optional progress token</p></li>
 </ul>
 </dd>
 </dl>
@@ -459,7 +412,7 @@ object.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Hover</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>Hover</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -480,7 +433,7 @@ object.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Location</em>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -577,8 +530,8 @@ from the lenth of <code class="docutils literal notranslate"><span class="pre">t
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>uri</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The uri of the document that was changed.</p></li>
-<li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> | </em><em>None</em>) – The line at which the change is being made.</p></li>
-<li><p><strong>character</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> | </em><em>None</em>) – The character at which the change is being made.</p></li>
+<li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – The line at which the change is being made.</p></li>
+<li><p><strong>character</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – The character at which the change is being made.</p></li>
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The text that is being inserted into the document.</p></li>
 </ul>
 </dd>
@@ -1025,8 +978,8 @@ event.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stdin</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><em>TextIO</em></a><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>stdout</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><em>TextIO</em></a><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>stdin</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><em>TextIO</em></a><em>]</em>) – </p></li>
+<li><p><strong>stdout</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><em>TextIO</em></a><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -1076,7 +1029,7 @@ event.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>CodeActionParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Command</em> | <em>CodeAction</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Command</em>, <em>CodeAction</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1091,7 +1044,7 @@ event.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>CodeLensParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CodeLens</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CodeLens</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1134,7 +1087,7 @@ during resolve.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>CompletionParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CompletionItem</em>] | <em>CompletionList</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CompletionItem</em>], <em>CompletionList</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1154,7 +1107,7 @@ Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DeclarationParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Location</em>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1174,7 +1127,7 @@ that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DefinitionParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Location</em>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1190,7 +1143,7 @@ that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentDiagnosticParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>RelatedFullDocumentDiagnosticReport</em> | <em>RelatedUnchangedDocumentDiagnosticReport</em></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>RelatedFullDocumentDiagnosticReport</em>, <em>RelatedUnchangedDocumentDiagnosticReport</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1228,7 +1181,7 @@ resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentHighlightParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentHighlight</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentHighlight</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1243,7 +1196,7 @@ resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentLinkParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentLink</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1261,7 +1214,7 @@ SymbolInformation[]} or a Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentSymbolParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SymbolInformation</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentSymbol</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SymbolInformation</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>DocumentSymbol</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1279,7 +1232,7 @@ resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>FoldingRangeParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>FoldingRange</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>FoldingRange</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1294,7 +1247,7 @@ resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentFormattingParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1312,7 +1265,7 @@ such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>HoverParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Hover</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>Hover</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1331,7 +1284,7 @@ Definition} or a Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>ImplementationParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Location</em>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1349,7 +1302,7 @@ is of type <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<sp
 <dd class="field-odd"><p><strong>params</strong> (<em>InlayHintParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>InlayHint</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>InlayHint</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1367,7 +1320,7 @@ parameter is of type <a class="reference external" href="mailto:{&#37;&#52;&#48;
 <dd class="field-odd"><p><strong>params</strong> (<em>InlineValueParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>InlineValueText</em> | <em>InlineValueVariableLookup</em> | <em>InlineValueEvaluatableExpression</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>InlineValueText</em>, <em>InlineValueVariableLookup</em>, <em>InlineValueEvaluatableExpression</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1383,7 +1336,7 @@ parameter is of type <a class="reference external" href="mailto:{&#37;&#52;&#48;
 <dd class="field-odd"><p><strong>params</strong> (<em>LinkedEditingRangeParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>LinkedEditingRanges</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>LinkedEditingRanges</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1401,7 +1354,7 @@ The response is of type <a class="reference external" href="mailto:{&#37;&#52;&#
 <dd class="field-odd"><p><strong>params</strong> (<em>MonikerParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Moniker</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Moniker</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1416,7 +1369,7 @@ The response is of type <a class="reference external" href="mailto:{&#37;&#52;&#
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentOnTypeFormattingParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1434,7 +1387,7 @@ hierarchy.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>CallHierarchyPrepareParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CallHierarchyItem</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>CallHierarchyItem</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1450,7 +1403,7 @@ hierarchy.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>PrepareRenameParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Range</em> | <em>PrepareRenameResult_Type1</em> | <em>PrepareRenameResult_Type2</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Range</em>, <em>PrepareRenameResult_Type1</em>, <em>PrepareRenameResult_Type2</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1468,7 +1421,7 @@ hierarchy.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>TypeHierarchyPrepareParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TypeHierarchyItem</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TypeHierarchyItem</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1483,7 +1436,7 @@ hierarchy.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DocumentRangeFormattingParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1501,7 +1454,7 @@ ReferenceParams} the response is of type.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>ReferenceParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1516,7 +1469,7 @@ ReferenceParams} the response is of type.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>RenameParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>WorkspaceEdit</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>WorkspaceEdit</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1534,7 +1487,7 @@ Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>SelectionRangeParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SelectionRange</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SelectionRange</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1549,7 +1502,7 @@ Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>SemanticTokensDeltaParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>SemanticTokens</em> | <em>SemanticTokensDelta</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>SemanticTokens</em>, <em>SemanticTokensDelta</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1564,7 +1517,7 @@ Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>SemanticTokensParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>SemanticTokens</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>SemanticTokens</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1579,7 +1532,7 @@ Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>SemanticTokensRangeParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>SemanticTokens</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>SemanticTokens</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1593,7 +1546,7 @@ Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>SignatureHelpParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>SignatureHelp</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>SignatureHelp</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1612,7 +1565,7 @@ Definition} or a Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>TypeDefinitionParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Location</em> | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<em>Location</em>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>Location</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>LocationLink</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1633,7 +1586,7 @@ save fast and reliable.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>WillSaveTextDocumentParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TextEdit</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1649,7 +1602,7 @@ save fast and reliable.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>TypeHierarchySubtypesParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TypeHierarchyItem</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TypeHierarchyItem</em>]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1665,7 +1618,18 @@ save fast and reliable.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>TypeHierarchySupertypesParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TypeHierarchyItem</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>TypeHierarchyItem</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_lsp.LanguageClient.wait_for_notification">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_notification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.LanguageClient.wait_for_notification" title="Permalink to this definition">#</a></dt>
+<dd><p>Block until a notification with the given method is received.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The notification method to wait for, e.g. <code class="docutils literal notranslate"><span class="pre">textDocument/publishDiagnostics</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1698,7 +1662,7 @@ apply to the workspace.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>ExecuteCommandParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1720,7 +1684,7 @@ SymbolInformation SymbolInformation[]} or a Thenable that resolves to such.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>WorkspaceSymbolParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SymbolInformation</em>] | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>WorkspaceSymbol</em>] | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><em>Union</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>SymbolInformation</em>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a>[<em>WorkspaceSymbol</em>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1754,7 +1718,7 @@ within the client.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>CreateFilesParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>WorkspaceEdit</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>WorkspaceEdit</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1771,7 +1735,7 @@ when files were deleted from within the client.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>DeleteFilesParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>WorkspaceEdit</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>WorkspaceEdit</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1789,7 +1753,7 @@ within the client.</p>
 <dd class="field-odd"><p><strong>params</strong> (<em>RenameFilesParams</em>) – </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>WorkspaceEdit</em> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><em>Optional</em></a>[<em>WorkspaceEdit</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1802,7 +1766,7 @@ within the client.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pytest_lsp.LanguageClient.error">
-<span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.11)"><span class="pre">Exception</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="headerlink" href="#pytest_lsp.LanguageClient.error" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.11)"><span class="pre">Exception</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pytest_lsp.LanguageClient.error" title="Permalink to this definition">#</a></dt>
 <dd><p>Indicates if the client encountered an error.</p>
 </dd></dl>
 
@@ -1845,6 +1809,60 @@ within the client.</p>
 
 </dd></dl>
 
+</section>
+<section id="test-setup">
+<h2>Test Setup<a class="headerlink" href="#test-setup" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_lsp.fixture">
+<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">fixture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixture_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.fixture" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytest_lsp.ClientServerConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_factory=&lt;function</span> <span class="pre">make_test_client&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServerConfig" title="Permalink to this definition">#</a></dt>
+<dd><p>Configuration for a LSP Client-Server pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server_command</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><em>List</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – The command to use to start the language server.</p></li>
+<li><p><strong>client_factory</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><em>Callable</em></a><em>[</em><em>[</em><em>]</em><em>, </em><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a><em>]</em>) – Factory function to use when constructing the language client instance.
+Defaults to <a class="reference internal" href="#pytest_lsp.make_test_client" title="pytest_lsp.make_test_client"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest_lsp.make_test_client()</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_lsp.make_client_server">
+<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">make_client_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.make_client_server" title="Permalink to this definition">#</a></dt>
+<dd><p>Construct a new <code class="docutils literal notranslate"><span class="pre">ClientServer</span></code> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pytest_lsp.ClientServer" title="pytest_lsp.plugin.ClientServer"><em>ClientServer</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_lsp.make_test_client">
+<span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">make_test_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.make_test_client" title="Permalink to this definition">#</a></dt>
+<dd><p>Construct a new test client instance with the handlers needed to capture
+additional responses from the server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pytest_lsp.LanguageClient" title="pytest_lsp.client.LanguageClient"><em>LanguageClient</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="pytest_lsp.ClientServer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">ClientServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.ClientServer" title="Permalink to this definition">#</a></dt>
@@ -1871,6 +1889,7 @@ within the client.</p>
 
 </dd></dl>
 
+</section>
 </section>
 
         </article>
@@ -1929,10 +1948,7 @@ within the client.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
-<li><a class="reference internal" href="#pytest_lsp.fixture"><code class="docutils literal notranslate"><span class="pre">fixture()</span></code></a></li>
-<li><a class="reference internal" href="#pytest_lsp.make_client_server"><code class="docutils literal notranslate"><span class="pre">make_client_server()</span></code></a></li>
-<li><a class="reference internal" href="#pytest_lsp.make_test_client"><code class="docutils literal notranslate"><span class="pre">make_test_client()</span></code></a></li>
-<li><a class="reference internal" href="#pytest_lsp.ClientServerConfig"><code class="docutils literal notranslate"><span class="pre">ClientServerConfig</span></code></a></li>
+<li><a class="reference internal" href="#languageclient">LanguageClient</a><ul>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient"><code class="docutils literal notranslate"><span class="pre">LanguageClient</span></code></a><ul>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.call_hierarchy_incoming_calls_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.call_hierarchy_incoming_calls_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.call_hierarchy_outgoing_calls_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.call_hierarchy_outgoing_calls_request()</span></code></a></li>
@@ -2016,6 +2032,7 @@ within the client.</p>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.text_document_will_save_wait_until_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.text_document_will_save_wait_until_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.type_hierarchy_subtypes_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.type_hierarchy_subtypes_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.type_hierarchy_supertypes_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.type_hierarchy_supertypes_request()</span></code></a></li>
+<li><a class="reference internal" href="#pytest_lsp.LanguageClient.wait_for_notification"><code class="docutils literal notranslate"><span class="pre">LanguageClient.wait_for_notification()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.workspace_diagnostic_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.workspace_diagnostic_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.workspace_execute_command_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.workspace_execute_command_request()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.workspace_symbol_request"><code class="docutils literal notranslate"><span class="pre">LanguageClient.workspace_symbol_request()</span></code></a></li>
@@ -2033,9 +2050,18 @@ within the client.</p>
 <li><a class="reference internal" href="#pytest_lsp.LanguageClient.thread_pool_executor"><code class="docutils literal notranslate"><span class="pre">LanguageClient.thread_pool_executor</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-setup">Test Setup</a><ul>
+<li><a class="reference internal" href="#pytest_lsp.fixture"><code class="docutils literal notranslate"><span class="pre">fixture()</span></code></a></li>
+<li><a class="reference internal" href="#pytest_lsp.ClientServerConfig"><code class="docutils literal notranslate"><span class="pre">ClientServerConfig</span></code></a></li>
+<li><a class="reference internal" href="#pytest_lsp.make_client_server"><code class="docutils literal notranslate"><span class="pre">make_client_server()</span></code></a></li>
+<li><a class="reference internal" href="#pytest_lsp.make_test_client"><code class="docutils literal notranslate"><span class="pre">make_test_client()</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.ClientServer"><code class="docutils literal notranslate"><span class="pre">ClientServer</span></code></a><ul>
 <li><a class="reference internal" href="#pytest_lsp.ClientServer.client"><code class="docutils literal notranslate"><span class="pre">ClientServer.client</span></code></a></li>
 <li><a class="reference internal" href="#pytest_lsp.ClientServer.server"><code class="docutils literal notranslate"><span class="pre">ClientServer.server</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2050,8 +2076,12 @@ within the client.</p>
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     </body>
 </html>
