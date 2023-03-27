@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Language Client" href="language-client.html" /><link rel="prev" title="User Guide" href="../guide.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.23 -->
+    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>Getting Started - LSP Devtools</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
@@ -235,8 +235,8 @@ Copy the following code and save it into a file named <code class="docutils lite
 <span class="kn">from</span> <span class="nn">lsprotocol.types</span> <span class="kn">import</span> <span class="n">InitializeParams</span>
 
 <span class="kn">import</span> <span class="nn">pytest_lsp</span>
-<span class="kn">from</span> <span class="nn">pytest_lsp.client</span> <span class="kn">import</span> <span class="n">LanguageClient</span>
-<span class="kn">from</span> <span class="nn">pytest_lsp.plugin</span> <span class="kn">import</span> <span class="n">ClientServerConfig</span>
+<span class="kn">from</span> <span class="nn">pytest_lsp</span> <span class="kn">import</span> <span class="n">LanguageClient</span>
+<span class="kn">from</span> <span class="nn">pytest_lsp</span> <span class="kn">import</span> <span class="n">ClientServerConfig</span>
 
 
 <span class="nd">@pytest_lsp</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span>

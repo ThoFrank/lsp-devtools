@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="API Reference" href="../reference.html" /><link rel="prev" title="Language Client" href="language-client.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.23 -->
+    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>Fixtures - LSP Devtools</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
@@ -224,6 +224,26 @@ To fix this you can override the <code class="docutils literal notranslate"><spa
 </pre></div>
 </div>
 </section>
+<section id="parameterised-fixtures">
+<h2>Parameterised Fixtures<a class="headerlink" href="#parameterised-fixtures" title="Permalink to this heading">#</a></h2>
+<p>Like regular pytest fixtures, <a class="reference internal" href="../reference.html#pytest_lsp.fixture" title="pytest_lsp.fixture"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest_lsp.fixture()</span></code></a> supports <a class="reference external" href="https://docs.pytest.org/en/7.1.x/how-to/fixtures.html#parametrizing-fixtures">parameterisation</a>.
+This can be used to run the same set of tests while pretending to be a different client each time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest_lsp</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;neovim&quot;</span><span class="p">,</span> <span class="s2">&quot;visual_studio_code&quot;</span><span class="p">],</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">ClientServerConfig</span><span class="p">(</span><span class="n">server_command</span><span class="o">=</span><span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;server.py&quot;</span><span class="p">]),</span>
+<span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">lsp_client</span><span class="p">:</span> <span class="n">LanguageClient</span><span class="p">):</span>
+    <span class="c1"># Setup</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">InitializeParams</span><span class="p">(</span><span class="n">capabilities</span><span class="o">=</span><span class="n">client_capabilities</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">param</span><span class="p">))</span>
+    <span class="k">await</span> <span class="n">lsp_client</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="k">yield</span>
+
+    <span class="c1"># Teardown</span>
+    <span class="k">await</span> <span class="n">lsp_client</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -283,6 +303,7 @@ To fix this you can override the <code class="docutils literal notranslate"><spa
             <ul>
 <li><a class="reference internal" href="#">Fixtures</a><ul>
 <li><a class="reference internal" href="#fixture-scope">Fixture Scope</a></li>
+<li><a class="reference internal" href="#parameterised-fixtures">Parameterised Fixtures</a></li>
 </ul>
 </li>
 </ul>

@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Changelog" href="changelog.html" /><link rel="prev" title="Fixtures" href="guide/fixtures.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.23 -->
+    <!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>API Reference - LSP Devtools</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
@@ -1815,9 +1815,11 @@ within the client.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pytest_lsp.fixture">
 <span class="sig-prename descclassname"><span class="pre">pytest_lsp.</span></span><span class="sig-name descname"><span class="pre">fixture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixture_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_lsp.fixture" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Define a fixture that returns a client connected to a server running in a
+background sub-process</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – </p>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#pytest_lsp.ClientServerConfig" title="pytest_lsp.plugin.ClientServerConfig"><em>ClientServerConfig</em></a>) – Configuration for the client and server.</p>
 </dd>
 </dl>
 </dd></dl>
